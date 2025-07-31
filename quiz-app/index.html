@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h1>Interactive Quiz Application</h1>
+                <p>Test your knowledge across various topics and challenge yourself!</p>
+                
+                <div class="category-selection">
+                    <h3>Choose a Category:</h3>
+                    <div class="categories">
+                        <button class="category-btn" data-category="general">
+                            <i class="fas fa-globe"></i>
+                            <span>General Knowledge</span>
+                        </button>
+                        <button class="category-btn" data-category="science">
+                            <i class="fas fa-atom"></i>
+                            <span>Science</span>
+                        </button>
+                        <button class="category-btn" data-category="history">
+                            <i class="fas fa-scroll"></i>
+                            <span>History</span>
+                        </button>
+                        <button class="category-btn" data-category="sports">
+                            <i class="fas fa-football-ball"></i>
+                            <span>Sports</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="difficulty-selection">
+                    <h3>Select Difficulty:</h3>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                        <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                    </div>
+                </div>
+                
+                <button id="start-quiz-btn" class="start-btn" disabled>
+                    <i class="fas fa-play"></i>
+                    Start Quiz
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <div class="question-counter">
+                        <span id="current-question">1</span> / <span id="total-questions">10</span>
+                    </div>
+                    <div class="timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="time-left">30</span>s
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="quiz-content">
+                <div class="question-container">
+                    <h2 id="question-text">Question will appear here</h2>
+                </div>
+                
+                <div class="answers-container">
+                    <button class="answer-btn" data-answer="a">
+                        <span class="answer-letter">A</span>
+                        <span class="answer-text">Answer A</span>
+                    </button>
+                    <button class="answer-btn" data-answer="b">
+                        <span class="answer-letter">B</span>
+                        <span class="answer-text">Answer B</span>
+                    </button>
+                    <button class="answer-btn" data-answer="c">
+                        <span class="answer-letter">C</span>
+                        <span class="answer-text">Answer C</span>
+                    </button>
+                    <button class="answer-btn" data-answer="d">
+                        <span class="answer-letter">D</span>
+                        <span class="answer-text">Answer D</span>
+                    </button>
+                </div>
+
+                <div class="quiz-controls">
+                    <button id="next-btn" class="control-btn" disabled>
+                        Next Question
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <div class="results-header">
+                    <div class="score-circle">
+                        <div class="score-text">
+                            <span id="final-score">0</span>%
+                        </div>
+                    </div>
+                    <h2 id="results-title">Great Job!</h2>
+                    <p id="results-message">You completed the quiz!</p>
+                </div>
+
+                <div class="results-details">
+                    <div class="stat">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Correct: <strong id="correct-count">0</strong></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Incorrect: <strong id="incorrect-count">0</strong></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Time: <strong id="total-time">0s</strong></span>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="review-btn" class="control-btn secondary">
+                        <i class="fas fa-eye"></i>
+                        Review Answers
+                    </button>
+                    <button id="restart-btn" class="control-btn primary">
+                        <i class="fas fa-redo"></i>
+                        Take Another Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="review-screen" class="screen">
+            <div class="review-content">
+                <div class="review-header">
+                    <h2>Answer Review</h2>
+                    <button id="close-review-btn" class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="review-questions" class="review-questions">
+                    <!-- Review questions will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="quiz-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
